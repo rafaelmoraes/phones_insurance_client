@@ -1,24 +1,13 @@
-# README
+# Setup
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Certifique-se de ter instalado todas as dependências do Ruby on Rails 6
+* O banco de dados utilizado foi o sqlite3
+* Execute o procedimento padrão para executar uma aplicação Rails
 
-Things you may want to cover:
+## Startar o server
 
-* Ruby version
+```shellscript
+rails s -p 3001
+```
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+> O server deve usar a porta 3001
