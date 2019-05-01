@@ -29,4 +29,25 @@ class OrdersTest < ApplicationSystemTestCase
 
     assert_text 'Order was successfully created'
   end
+
+  test 'has a CPF invalid error' do
+    visit orders_url
+
+    click_on 'New Order'
+
+    assert_text 'All Orders'
+    assert_selector 'h1', text: 'New Order'
+
+    fill_in 'Cpf', with: '123.123'
+    fill_in 'Name', with: 'João Trabalhador'
+    fill_in 'Email', with: 'jao@email.com'
+    fill_in 'Phone model', with: 'Mokia caixão'
+    fill_in 'Imei', with: '145478-98-543870-1'
+    fill_in 'Annual price', with: '100.10'
+    fill_in 'Installments', with: 3
+
+    click_on 'Create Order'
+
+    assert_text 'User cpf is invalid'
+  end
 end
