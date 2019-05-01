@@ -1,0 +1,37 @@
+<% if notice.present? %>
+  <div class="notification is-info">
+    <p id="notice"><%= notice %></p>
+  </div>
+<% end %>
+
+<h1 class='is-size-3'>Orders</h1>
+
+<table class= "table is-striped is-bordered">
+  <thead>
+    <tr>
+      <th>Owner</th>
+      <th>CPF</th>
+      <th>EMAIL</th>
+      <th>Phone Model</th>
+      <th>IMEI</th>
+      <th>Installments</th>
+      <th>Annual Price</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        <td><%= order.user.name %></td>
+        <td><%= order.user.cpf %></td>
+        <td><%= order.user.email %></td>
+        <td><%= order.phone_model %></td>
+        <td><%= order.imei %></td>
+        <td><%= order.installments %></td>
+        <td><%= order.annual_price %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New Order', new_order_path, class: "button is-primary" %>

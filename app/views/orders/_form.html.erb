@@ -1,0 +1,64 @@
+<div class="column is-4">
+
+<%= form_with(model: order, local: true) do |form| %>
+  <% if order.errors.any? %>
+    <div class="notification is-danger">
+      <div id="error_explanation">
+        <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+        <ul>
+          <% order.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <% end %>
+
+  <%= form.fields_for order.user do |user_from| %>
+    <%= user_from.hidden_field :id %>
+
+    <div class="field">
+      <%= user_from.label :cpf, class: 'label' %>
+      <%= user_from.text_field :cpf, required: true, class: 'input' %>
+    </div>
+
+    <div class="field">
+      <%= user_from.label :name, class: 'label' %>
+      <%= user_from.text_field :name, required: true, class: 'input' %>
+    </div>
+
+    <div class="field">
+      <%= user_from.label :email, class: 'label' %>
+      <%= user_from.text_field :email, required: true, class: 'input' %>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :phone_model, class: 'label' %>
+    <%= form.text_field :phone_model, required: true, class: 'input' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :imei, class: 'label' %>
+    <%= form.text_field :imei, required: true, class: 'input' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :annual_price, class: 'label' %>
+    <%= form.number_field :annual_price, required: true, min: 0.01, step: 0.01, class: 'input' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :installments, class: 'label' %>
+    <%= form.number_field :installments, required: true, value: 1, min: 1, class: 'input' %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit data: { "disable-with": "Saving..." } , class: "button is-primary"%>
+  </div>
+<% end %>
+</div>
+
+<%= javascript_include_tag 'order_new', 'data-turbolinks-track': 'reload' %>
