@@ -24,6 +24,7 @@ class Warehouse
   end
 
   private
+
   def parse_body(response_body)
     JSON.parse(response_body)
   end
