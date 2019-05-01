@@ -10,6 +10,7 @@
     const isCPFValid = (rawCPF) => cpfRegex.test(rawCPF.trim())
 
     const clear = () => {
+      id.value = user.id;
       name.value = '';
       email.value = '';
     }
