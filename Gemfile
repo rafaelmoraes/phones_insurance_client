@@ -23,6 +23,7 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
+gem 'cpf_cnpj', '~> 0.5.0'
 gem 'rest-client', '~> 2.0', '>= 2.0.2'
 
 group :development, :test do
@@ -44,7 +45,9 @@ group :test do
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
+  gem 'simplecov'
   gem 'webdrivers'
+  gem 'webmock', '~> 3.5', '>= 3.5.1'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
